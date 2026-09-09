@@ -1,44 +1,57 @@
-ai-debate-system/
+Multi-Agent-Debate/
+│
 ├── config/
 │   ├── __init__.py
-│   ├── agents.py           # System prompts & agent persona definitions
-│   └── settings.py         # API keys, model configs, app settings
+│   ├── agents.py
+│   └── settings.py
+│
 ├── src/
 │   ├── __init__.py
+│   │
 │   ├── agents/
 │   │   ├── __init__.py
-│   │   ├── debater.py      # Pro & Con debate generation logic
-│   │   ├── fact_checker.py # Web search & fact-checking logic
-│   │   └── judge.py        # Final verdict evaluation logic
+│   │   ├── debater.py
+│   │   ├── fact_checker.py
+│   │   └── judge.py
+│   │
 │   ├── core/
 │   │   ├── __init__.py
-│   │   ├── state.py        # DebateState schema (TypedDict / Pydantic)
-│   │   └── graph.py        # LangGraph workflow orchestration
+│   │   ├── state.py
+│   │   └── graph.py
+│   │
 │   └── tools/
 │       ├── __init__.py
-│       └── search.py       # Search API integration (Tavily / DuckDuckGo)
+│       └── search.py
+│
 ├── app/
 │   ├── __init__.py
+│   │
 │   ├── routes/
 │   │   ├── __init__.py
-│   │   ├── main.py         # HTTP routes (render index, view debate archives)
-│   │   └── stream.py       # SSE (Server-Sent Events) streaming route for debate tokens
+│   │   ├── main.py
+│   │   └── stream.py
+│   │
 │   ├── static/
 │   │   ├── css/
-│   │   │   └── style.css   # Tailored UI styling (or Tailwind CDN link)
+│   │   │   └── style.css
 │   │   └── js/
-│   │       └── debate.js   # EventSource handler for real-time SSE stream updates
+│   │       └── debate.js
+│   │
 │   └── templates/
-│       ├── base.html       # Main HTML layout wrapper
-│       ├── index.html      # Debate input form & live debate arena UI
-│       └── components/     # Modular template parts
+│       ├── base.html
+│       ├── index.html
+│       └── components/
 │           ├── agent_card.html
 │           ├── chat_bubble.html
 │           └── verdict.html
+│
 ├── tests/
 │   ├── test_routes.py
 │   └── test_graph.py
-├── .env.example            # Environment variables setup
-├── requirements.txt        # Dependencies
-├── run.py                  # Single entry point to run the Flask app
+│
+├── .env
+├── .env.example
+├── .gitignore
+├── requirements.txt
+├── run.py
 └── README.md
