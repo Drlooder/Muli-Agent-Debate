@@ -15,3 +15,13 @@ function startDebateSim() {
         lucide.createIcons();
     }, 1200);
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+    const toggleBtn = document.getElementById("toggleResponsesBtn");
+    const responsesPanel = document.getElementById("responsesPanel");
+
+    toggleBtn.addEventListener("click", () => {
+        responsesPanel.classList.toggle("is-hidden");
+        toggleBtn.classList.toggle("is-collapsed");
+    });
+});
