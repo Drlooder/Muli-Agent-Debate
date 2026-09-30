@@ -51,32 +51,34 @@
                     <label for="topic-input" class="text-xs font-semibold tracking-wider text-cyan-400 uppercase flex items-center gap-1.5">
                         <i data-lucide="sparkles" class="w-3.5 h-3.5"></i> Debate Proposition Topic
                     </label>
-                    <div class="relative flex items-center">
-                        <input 
-                            type="text" 
-                            id="topic-input"
-                            class="user-input cyber-input w-full px-4 py-3 pl-11 rounded-lg text-sm placeholder-slate-500 font-medium" 
-                            placeholder="Enter a topic, hypothesis, or proposal to debate and judge..."
-                            value="Universal Basic Income (UBI) will become economically mandatory by 2035."
-                        >
-                        <i data-lucide="message-square-code" class="w-5 h-5 absolute left-3.5 text-slate-500"></i>
-                    </div>
-                </div>
 
-                <div class="flex items-end gap-3 pt-2 md:pt-0">
-                    <div class="w-32 hidden sm:block">
-                        <label class="text-xs text-slate-400 mb-1 block">Rounds</label>
-                        <select class="cyber-input w-full px-3 py-3 rounded-lg text-xs font-mono">
-                            <option value="3">3 Rounds</option>
-                            <option value="5" selected>5 Rounds</option>
-                            <option value="10">10 Rounds</option>
-                        </select>
-                    </div>
-
-                    <button class="btn-cyber px-6 py-3 rounded-lg text-sm flex items-center justify-center gap-2 whitespace-nowrap cursor-pointer hover:opacity-95" onclick="startDebateSim()">
-                        <i data-lucide="play" class="w-4 h-4 fill-current"></i>
-                        <span>Start Debate</span>
-                    </button>
+                    <form action="/start" method="POST">               
+                        <div class="relative flex items-center">
+                            <input 
+                                type="text" 
+                                id="topic-input"
+                                class="user-input cyber-input w-full px-4 py-3 pl-11 rounded-lg text-sm placeholder-slate-500 font-medium" 
+                                placeholder="Enter a topic, hypothesis, or proposal to debate and judge..."
+                                value="Universal Basic Income (UBI) will become economically mandatory by 2035."
+                                name="Prompt"
+                                >
+                                <i data-lucide="message-square-code" class="w-5 h-5 absolute left-3.5 text-slate-500"></i>
+                        </div>
+                        <div class="flex items-end gap-3 pt-2 md:pt-0">
+                            <div class="w-32 hidden sm:block">
+                                <label class="text-xs text-slate-400 mb-1 block">Rounds</label>
+                                <select class="cyber-input w-full px-3 py-3 rounded-lg text-xs font-mono">
+                                    <option value="3">3 Rounds</option>
+                                    <option value="5" selected>5 Rounds</option>
+                                    <option value="10">10 Rounds</option>
+                                </select>
+                            </div>
+                        </div>
+                        <button class="btn-cyber px-6 py-3 rounded-lg text-sm flex items-center justify-center gap-2 whitespace-nowrap cursor-pointer hover:opacity-95" onclick="startDebateSim()">
+                            <i data-lucide="play" class="w-4 h-4 fill-current"></i>
+                            <span>Start Debate</span>
+                        </button>
+                    </form>
                 </div>
             </div>
         </section>
