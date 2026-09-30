@@ -11,7 +11,7 @@ client = OpenAI(
 
 def generate_response(text: str) -> str:
     """ 
-    Generating a response from The Critic ai.
+    Generating a response from The ai.
 
     Returning clean **STR** from the ai
     """
