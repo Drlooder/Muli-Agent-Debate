@@ -1,10 +1,263 @@
 <!DOCTYPE html>
+
 <html lang="en">
-<head>
-    <title>Document</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+<head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>AI Multi-Agent Debate Arena</title>
+
+<!-- Main CSS -->
+<link rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}">
+
+<link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+
+
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+
 </head>
+
 <body>
-    
+
+<div class="app-container">
+
+    <!-- =========================
+         CONTROL PANEL
+    ========================== -->
+
+    <header class="control-panel">
+
+        <div class="header-top">
+
+            <div>
+                <h1>AI Debate Arena</h1>
+
+                <p class="subtitle">
+                    Multi-Agent Debate &amp; Reasoning System
+                </p>
+            </div>
+
+            <span
+                id="socket-status"
+                class="connection-badge disconnected">
+                Disconnected
+            </span>
+
+        </div>
+
+
+        <div class="topic-input-group">
+            <input
+                type="text"
+                id="debate-topic"
+                placeholder="Enter debate topic..."
+                autocomplete="off"
+            >
+
+            <button
+                id="random-topic-btn"
+                class="random-topic"
+                type="button">
+                🎲 Random Topic
+            </button>
+
+            <button
+                id="start-btn"
+                type="button">
+                ▶ Start Debate
+            </button>
+
+            <button
+                id="stop-btn"
+                class="secondary"
+                type="button"
+                disabled>
+                ■ Stop
+            </button>
+        </div>
+    </header>
+
+
+    <!-- =========================
+         DEBATE ARENA
+    ========================== -->
+
+    <main class="arena-grid">
+
+        <!-- =====================
+             PRO AGENT
+        ====================== -->
+
+        <section
+            class="agent-card agent-pro"
+            id="agent-1-card">
+
+            <div class="agent-header">
+
+                <div class="agent-title">
+
+                    <span class="status-indicator"></span>
+
+                    <div>
+                        <h2>Agent Pro</h2>
+
+                        <span class="agent-description">
+                            Supporting the proposition
+                        </span>
+                    </div>
+
+                </div>
+
+                <span class="badge">
+                    Affirmative
+                </span>
+
+            </div>
+
+
+            <div
+                class="message-stream"
+                id="stream-agent-1">
+
+                <div class="empty-message">
+                    Waiting for Agent Pro...
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================
+             CON AGENT
+        ====================== -->
+
+        <section
+            class="agent-card agent-con"
+            id="agent-2-card">
+
+            <div class="agent-header">
+
+                <div class="agent-title">
+
+                    <span class="status-indicator"></span>
+
+                    <div>
+                        <h2>Agent Con</h2>
+
+                        <span class="agent-description">
+                            Challenging the proposition
+                        </span>
+                    </div>
+
+                </div>
+
+                <span class="badge negative">
+                    Negative
+                </span>
+
+            </div>
+
+
+            <div
+                class="message-stream"
+                id="stream-agent-2">
+
+                <div class="empty-message">
+                    Waiting for Agent Con...
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================
+             MODERATOR
+        ====================== -->
+
+        <section
+            class="agent-card full-width agent-mod"
+            id="agent-mod-card">
+
+            <div class="agent-header">
+
+                <div class="agent-title">
+
+                    <span class="status-indicator"></span>
+
+                    <div>
+                        <h2>Judge &amp; Synthesis</h2>
+
+                        <span class="agent-description">
+                            Analyzing the debate
+                        </span>
+                    </div>
+
+                </div>
+
+                <span class="badge neutral">
+                    Moderator
+                </span>
+
+            </div>
+
+
+            <div
+                class="message-stream"
+                id="stream-agent-mod">
+
+                <div class="empty-message">
+                    Waiting for the debate to finish...
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer class="app-footer">
+
+        <span>
+            AI Multi-Agent Debate System
+        </span>
+
+        <span class="footer-dot"></span>
+
+        <span>
+            Real-time reasoning
+        </span>
+
+    </footer>
+
+</div>
+
+
+<!-- =========================
+     SOCKET.IO
+========================== -->
+
+<script src="https://cdn.socket.io/4.7.5/socket.io.min.js"></script>
+
+
+<!-- =========================
+     APPLICATION JS
+========================== -->
+
+<script src="{{ url_for('static', filename='js/socket.js') }}"></script>
+
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+
 </body>
+
 </html>
