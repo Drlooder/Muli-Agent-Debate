@@ -59,7 +59,7 @@ Before you begin, ensure you have the following installed:
 - **pip** — Python package manager (usually included with Python)
 - **Git** — [Download Git](https://git-scm.com/)
 - **A modern web browser** — Chrome, Firefox, Safari, or Edge
-- **API key** (if required) — e.g., OpenAI API key, Anthropic key, or other LLM provider
+- **API key** — [Groq Api Keys](https://console.groq.com/)
 
 ### Step 1: Clone the Repository
 
@@ -116,16 +116,9 @@ Then open `.env` in your text editor and add your configuration:
 
 ```env
 # LLM Configuration
-OPENAI_API_KEY=your_openai_api_key_here
-MODEL_NAME=gpt-4
-TEMPERATURE=0.7
-
-# Application Settings
-DEBUG=True
-HOST=0.0.0.0
-PORT=5000
+GROQ_API_KEY="your_key_here"
+SECRET_KEY_FALSK="whatevet"
 ```
-
 Replace `your_openai_api_key_here` with your actual API key from your LLM provider.
 
 ### Step 5: Run the Application
