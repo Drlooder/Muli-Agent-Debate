@@ -9,7 +9,7 @@ client = OpenAI(
     base_url="https://api.groq.com/openai/v1"
 )
 
-def generate_response(text: str) -> str:
+def generate_response(text: str, agent: str) -> str:
     """ 
     Generating a response from The ai.
 

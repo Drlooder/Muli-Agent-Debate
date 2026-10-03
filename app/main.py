@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request
 from flask_socketio import SocketIO, emit
-from LLM.ai import generate_response
+from app.Services.ai import generate_response
 import Services.saving as _SAVE
 
 app = Flask(__name__)
@@ -11,7 +11,7 @@ _CACHE_ID = 0
 
 @app.route("/", methods=["GET"])
 def main_route():
-    return render_template("main.html")
+    return render_template("index.html")
 
 @socketIo.on("send_prompt")
 def handle_prompt(data):

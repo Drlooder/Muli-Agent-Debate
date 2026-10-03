@@ -9,6 +9,5 @@ document.getElementById("prompt_form").addEventListener("submit", function(e){
 })
 
 socket.on("prompt_response", function(data) {
-    const generated_response = data.generated_response
-    
+   
 })
